@@ -35,7 +35,7 @@ func init() {
 		panic(err.Error())
 	}
 
-	fmt.Println(File)
+	//fmt.Println(File)
 
 }
 func Test()  {
