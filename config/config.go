@@ -35,6 +35,8 @@ func init() {
 		panic(err.Error())
 	}
 
+	fmt.Println(File)
+
 }
 func Test()  {
 	fmt.Println("aa")
