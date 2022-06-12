@@ -1,6 +1,6 @@
 package net
 
-type HandlerFunc func()
+type HandlerFunc func(name string, req *WsMsgReq, rsp *WsMsgRsp)
 
 type group struct {
 	prefix string
