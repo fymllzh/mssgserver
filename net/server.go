@@ -1,15 +1,14 @@
 package net
 
 import (
-	"fmt"
+	"github.com/gorilla/websocket"
 	"log"
 	"net/http"
-	"github.com/gorilla/websocket"
 )
 
 type server struct {
 	addr string
-	route *route
+	router *Router
 }
 
 func NewServer(addr string) *server {
@@ -42,21 +41,23 @@ func (s *server) wsHandler(w http.ResponseWriter, r *http.Request)  {
 	}
 	log.Println("ws 链接成功")
 
-	//响应客户端
-	err = wsConn.WriteMessage(websocket.BinaryMessage,[]byte("hello"))
-	fmt.Println(err)
+	////响应客户端
+	//err = wsConn.WriteMessage(websocket.BinaryMessage,[]byte("hello"))
+	//fmt.Println(err)
+	//
+	//
+	////读取客户端的信息
+	//for {
+	//	_,str,err := wsConn.ReadMessage()
+	//	if err != nil {
+	//		log.Fatalln("ws 读取",err)
+	//	}
+	//	fmt.Println(string(str))
+	//}
 
-
-	//读取客户端的信息
-	for {
-		_,str,err := wsConn.ReadMessage()
-		if err != nil {
-			log.Fatalln("ws 读取",err)
-		}
-		fmt.Println(string(str))
-	}
-
-
+	wsSever := NewWsServer(wsConn)
+	wsSever.Router(s.router)
+	wsSever.Start()
 }
 
 

@@ -7,6 +7,6 @@ type group struct {
 	handlerMap map[string]HandlerFunc
 }
 
-type route struct {
+type Router struct {
 	group []*group
 }
