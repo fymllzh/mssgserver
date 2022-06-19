@@ -2,8 +2,13 @@ package main
 
 import (
 	"fmt"
-	"mssgserver/server"
+	"mssgserver/utils"
 )
+
+type User struct {
+	ID   int64
+	Name string
+}
 func main()  {
 	////测试调用长链接
 	//config.Test()
@@ -15,7 +20,7 @@ func main()  {
 	//fmt.Println(str)
 
 
-	var u server.User
+	//var u server.User
 
 	//插入数据
 	//err := u.InsertRowDemo()
@@ -41,4 +46,25 @@ func main()  {
 	//删除
 	//b :=u.DeleteRowDemo(2)
 	//fmt.Println(b)
+
+	//测试redis 需要结构体存取
+	//u := User{
+	//	ID : 9,
+	//	Name: "nihao",
+	//
+	//}
+	//utils.SetJson("haha",u,3600)
+	var aa User
+	if utils.GetJson("haha",&aa) {
+		fmt.Printf("%+v",aa)
+	} else {
+		fmt.Println(888)
+	}
+
+
+	//redis结构体存取
+	//utils.StructAdd()
+	//utils.StructValues()
+
+
 }
