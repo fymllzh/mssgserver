@@ -31,9 +31,14 @@ func main()  {
 	//fmt.Printf("%+v",u)
 
 	//查询列表
-	res := u.SelectListDemo()
-	fmt.Println(len(res))
+	//res := u.SelectListDemo()
+	//fmt.Println(len(res))
 
+	//更新
+	//num :=u.UpdateRowDemo(0,101)
+	//fmt.Println(num)
 
-
+	//删除
+	//b :=u.DeleteRowDemo(2)
+	//fmt.Println(b)
 }
