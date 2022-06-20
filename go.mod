@@ -6,6 +6,7 @@ require (
 	github.com/Unknwon/goconfig v1.0.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/forgoer/openssl v1.2.1
+	github.com/gin-gonic/gin v1.8.1 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/gomodule/redigo v1.8.8 // indirect
 	github.com/gorilla/websocket v1.5.0
