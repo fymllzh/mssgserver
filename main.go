@@ -1,11 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"github.com/gin-gonic/gin"
-	"mssgserver/router"
-)
-
 type User struct {
 	ID   int64
 	Name string
@@ -87,9 +81,22 @@ func main()  {
 //		"message": "Hello q1mi!",
 //	})
 	////////////////gin封装route//////////////
-	r := gin.Default()
-	router.InitRouter(r)
-	if err := r.Run(":8005"); err != nil {
-		fmt.Println("启动错误")
-	}
+	//r := gin.Default()
+	//router.InitRouter(r)
+	//if err := r.Run(":8005"); err != nil {
+	//	fmt.Println("启动错误")
+	//}
+
+	////////测试时间包//////////
+	//str := utils.GetDateTime()
+	//fmt.Println(str)
+	//unix := utils.GetUnix()
+	//fmt.Println(unix)
+	//date := utils.Unix2DateTime(unix)
+	//fmt.Println(date)
+	//u := utils.Date2Unix(str)
+	//fmt.Println(u)
+
+
+
 }

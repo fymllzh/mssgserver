@@ -28,7 +28,7 @@ func AesCBCDecrypt(src, key, iv []byte, padding string) ([]byte, error) {
 	return openssl.AesCBCDecrypt(data, key, iv, padding)
 
 }
-func Md5(text string) string {
+func Md5s(text string) string {
 	hashMd5 := md5.New()
 	io.WriteString(hashMd5, text)
 	return fmt.Sprintf("%x", hashMd5.Sum(nil))
@@ -67,5 +67,5 @@ func UnZip(data []byte) ([]byte, error){
 }
 
 func Password(pwd string, pwdCode string) string {
-	return Md5(pwd + pwdCode)
+	return Md5s(pwd + pwdCode)
 }
