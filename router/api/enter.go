@@ -4,4 +4,5 @@ type RouterGroup struct {
 	HostRouter
 	BaseRouter
 	SetRouter
+	LoginRouter
 }

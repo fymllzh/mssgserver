@@ -12,8 +12,9 @@ func InitRouter(r *gin.Engine) {
 	ctApi := r.Group("/api")
 	{
 		apiRouter.InitHostRouter(ctApi)
-		//apiRouter.InitBaseRouter(ctApi)
+		apiRouter.InitBaseRouter(ctApi)
 		apiRouter.InitSetRouter(ctApi)
+		apiRouter.InitLoginRouter(ctApi)
 	}
 
 }

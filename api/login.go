@@ -48,7 +48,8 @@ func updateLoginError(id int, account string) {
 func LoginAuth(c *gin.Context) {
 	var form loginForm
 	if err := c.ShouldBind(&form); err != nil {
-		c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=输入正确的账号和密码", form.Email))
+		//c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=输入正确的账号和密码", form.Email))
+		fmt.Println("绑定参数错误", err.Error())
 		return
 	}
 
@@ -59,7 +60,7 @@ func LoginAuth(c *gin.Context) {
 	if err != nil {
 		fmt.Println("账号查询错误", err.Error())
 		go updateLoginError(0, form.Email)
-		c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=账号或密码错误", form.Email))
+		//c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=账号或密码错误", form.Email))
 		return
 	}
 	//校验失败次数
@@ -71,7 +72,8 @@ func LoginAuth(c *gin.Context) {
 		if loginDate == utils.GetDate() {
 			if userinfo.LoginFailCount > loginFailCount {
 				if utils.GetUnix()-userinfo.LoginTime < loginFailWaitTime {
-					c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=禁止访问%d分钟", form.Email, loginFailWaitTime/60))
+					//c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=禁止访问%d分钟", form.Email, loginFailWaitTime/60))
+					fmt.Printf("account=%s&msg=禁止访问%d分钟",form.Email,loginFailWaitTime/60)
 					return
 				}
 			}
@@ -81,7 +83,7 @@ func LoginAuth(c *gin.Context) {
 	if userinfo.Password != utils.Md5(form.Password+userinfo.Salt) {
 		fmt.Println("密码错误")
 		go updateLoginError(userinfo.Id, "")
-		c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=账号或密码错误", form.Email))
+		//c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=账号或密码错误", form.Email))
 		return
 	}
 	//设置登录状态
@@ -96,5 +98,5 @@ func LoginAuth(c *gin.Context) {
 	//更新登录信息
 	go updateLoginTime(userinfo.Id, utils.GetRequestIP(c))
 
-	c.Redirect(http.StatusFound, "/")
+	c.Redirect(http.StatusFound, "/api/set/create")
 }

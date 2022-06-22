@@ -7,7 +7,7 @@ import (
 
 func SetItems( ctx *gin.Context)  {
 	ctx.JSON(200,gin.H{
-		"do":"我是index",
+		"do":"登陆成功",
 	})
 }
 func SetDelete(  ctx *gin.Context)  {
