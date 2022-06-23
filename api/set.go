@@ -3,15 +3,22 @@ package api
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"github.com/gin-contrib/sessions"
 )
 
-func SetItems( ctx *gin.Context)  {
-	ctx.JSON(200,gin.H{
+func SetItems( c *gin.Context)  {
+    s:= sessions.Default(c)
+    admin_name := s.Get("admin_name")
+	cttask_token := s.Get("cttask_token")
+
+	c.JSON(200,gin.H{
 		"do":"登陆成功",
+		"admin_name":admin_name,
+		"cttask_token":cttask_token,
 	})
 }
-func SetDelete(  ctx *gin.Context)  {
-	ctx.JSON(http.StatusOK, gin.H{
+func SetDelete(  c *gin.Context)  {
+	c.JSON(http.StatusOK, gin.H{
 		"message": "我是delete",
 	})
 }

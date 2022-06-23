@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"mssgserver/utils"
 	"net/http"
@@ -87,14 +88,15 @@ func LoginAuth(c *gin.Context) {
 		return
 	}
 	//设置登录状态
-	//session := sessions.Default(c)
-	//session.Set("cttask_token", fmt.Sprintf("%d", userinfo.Id))
-	//session.Set("admin_name", userinfo.Email)
-	//err = session.Save()
-	//if err != nil {
-	//	c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=登录失败，请联系管理员", form.Email))
-	//	return
-	//}
+	session := sessions.Default(c)
+	session.Set("cttask_token", fmt.Sprintf("%d", userinfo.Id))
+	session.Set("admin_name", userinfo.Email)
+	err = session.Save()
+	if err != nil {
+		//c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=登录失败，请联系管理员", form.Email))
+		fmt.Println(err)
+		return
+	}
 	//更新登录信息
 	go updateLoginTime(userinfo.Id, utils.GetRequestIP(c))
 
