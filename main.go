@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"mssgserver/router"
+	"mssgserver/utils"
 )
 
 type User struct {
@@ -88,6 +89,8 @@ func main()  {
 //	})
 	////////////////gin封装route//////////////
 	r := gin.Default()
+
+	utils.InitLog()
 	router.InitRouter(r)
 	if err := r.Run(":8005"); err != nil {
 		fmt.Println("启动错误")

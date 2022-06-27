@@ -47,6 +47,8 @@ func updateLoginError(id int, account string) {
 
 }
 func LoginAuth(c *gin.Context) {
+	utils.Logger.Info("login start")
+
 	var form loginForm
 	if err := c.ShouldBind(&form); err != nil {
 		//c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=输入正确的账号和密码", form.Email))
