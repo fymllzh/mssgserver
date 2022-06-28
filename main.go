@@ -106,6 +106,21 @@ func main()  {
 	//u := utils.Date2Unix(str)
 	//fmt.Println(u)
 
+	//测试jwt
+	//token,err := utils.GenToken("li","zhi",6000)
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+	//
+	//	fmt.Println(token)
+	//
+	//var aa *utils.Claims
+	//	aa,err = utils.ValidToken(token,"zhi")
+	//	if err != nil {
+	//		fmt.Println(err)
+	//	}
+
+		//fmt.Println(aa.Data)
 
 
 }
