@@ -15,11 +15,11 @@ var (
 	Logger *logrus.Logger
 )
 
-func InitLog() {
+func InitLog(logPath string) {
 	//日志文件
-	logDir := "logs"
-	os.Mkdir(logDir, os.ModePerm)
-	fileName := path.Join(logDir, "agent.log")
+
+	os.Mkdir(logPath, os.ModePerm)
+	fileName := path.Join(logPath, "agent.log")
 
 	//写入文件
 	file, err := os.OpenFile(fileName, os.O_WRONLY|os.O_CREATE|os.O_APPEND, os.ModeAppend|os.ModePerm)

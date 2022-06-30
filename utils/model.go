@@ -11,7 +11,7 @@ import (
 
 var DB *sqlx.DB
 
-func init() {
+func InitDb() {
 	var err error
 	dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		Viper.GetString("db.User"),

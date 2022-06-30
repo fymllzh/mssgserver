@@ -8,6 +8,16 @@ import (
 )
 
 func SetItems( c *gin.Context)  {
+
+	defer func() {
+		if err := recover(); err != nil {
+			utils.Logger.Info(err)
+			if str, ok := err.(string); ok {
+				utils.Logger.Info("set异常是 " + str)
+			}
+		}
+	}()
+
     s:= sessions.Default(c)
     admin_name := s.Get("admin_name")
 	cttask_token := s.Get("cttask_token")

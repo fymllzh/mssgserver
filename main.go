@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"mssgserver/router"
@@ -12,6 +13,16 @@ type User struct {
 	Name string
 }
 func main()  {
+	//异常捕获只能捕获单前文件的异常
+	defer func() {
+		if err := recover(); err != nil {
+			utils.Logger.Info("捕获异常错误")
+			if str, ok := err.(string); ok {
+				utils.Logger.Info("异常是 " + str)
+			}
+		}
+	}()
+
 	////测试调用长链接
 	//config.Test()
 	////获取配置文件的值
@@ -89,9 +100,17 @@ func main()  {
 //	})
 	////////////////gin封装route//////////////
 	r := gin.Default()
+	//测试flag包--初始化日志目录
+	var logPath string
+	flag.StringVar(&logPath,"z","logs","这是一个日志目录")
+	flag.Parse()
+	utils.InitLog(logPath)
+	//初始化数据库
+	utils.InitDb()
 
-	utils.InitLog()
+	//初始化路由
 	router.InitRouter(r)
+
 	if err := r.Run(":8005"); err != nil {
 		fmt.Println("启动错误")
 	}
