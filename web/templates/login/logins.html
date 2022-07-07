@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{{.title}}</title>
+        <link rel="shortcut icon" href="/statics/images/favicon.ico"/>
+        <style type="text/css">
+            html,body {
+                margin:0;
+                padding:0;
+            }
+            body * {
+                font-family: "微软雅黑";
+            }
+            input {
+                height:35px;
+                line-height: 35px;
+                width: 230px;
+            }  
+            .login-content{
+                background-color: #eeeeee;
+                position: absolute;
+                left: 370px;
+                top: 120px;
+                width: 516px;
+                height: 450px;
+                font-family: '微软雅黑';
+                font-size: 16px;
+                font-weight: normal;
+                background:url({{.bgurl}});
+                background-repeat: no-repeat;   
+                background-size: 100% 100%; 
+            }
+            .login-body{
+                height: 500px;
+                position: absolute;
+                width: 996px;
+            }
+            #login-wrapper {
+                padding-top: 0;
+                background-color: #e0e0e0;
+                height: 100%;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .login-bg{
+                height: 450px;
+                width: 996px;
+                margin: 0 auto;
+            }
+            .login-form{
+                background-color: #eeeeee;
+                position: absolute;
+                left: 80px;
+                top: 120px;
+                width: 290px;
+                height: 450px;
+                font-family: '微软雅黑';
+                font-size: 16px;
+                font-weight: normal;
+            }
+
+            .login-content div {
+                margin-top: 5px;
+                margin-left: 30px;
+            }
+            .login-form div{
+                margin-top: 80px;
+                margin-left: 30px;
+                width: 230px;
+                text-align: center;
+            }
+ 
+            .login-form p {
+                height: 44px;
+                margin-top: 40px;
+                padding: 8px 0 0;
+                text-align: left;
+            }
+            .login-form .login_btn{
+                height: 40px;
+                background: #E5C453;
+                color: #fff;
+                width: 160px;
+                border: 0px;
+            }
+        </style>
+    </head> 
+    <body>
+        <div id="login-wrapper">
+            <div class="login-bg">
+                <div class="login-body">
+<!--                        如果不写action 就是还是请求现有界面的url 即/admin/login  请求方式有method决定-->
+                        <form class="login-form" method="post" action="/admin/logins">
+                            <div>
+                               
+                                CT 任务管理平台 （本地测试）
+                             <p>
+                                 账号：<input type="text" name="email" maxlength="30"  />
+                             </p> 
+                             <p>
+                                 密码：<input type="password" maxlength="30" name="password" />
+                             </p>
+                             <p style="text-align: center;">
+                                <button class="login_btn">登 录</button>
+                                <br/>
+                                <b style="font-size: 10px;color: crimson;"></b>
+                             </p>
+                            </div>
+                        </form>
+                        <div class="login-content">
+                            <div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

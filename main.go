@@ -3,9 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	gintemplate "github.com/foolin/gin-template"
 	"github.com/gin-gonic/gin"
+	"mssgserver/api"
 	"mssgserver/router"
 	"mssgserver/utils"
+	"html/template"
 )
 
 type User struct {
@@ -110,6 +113,35 @@ func main()  {
 
 	//初始化路由
 	router.InitRouter(r)
+
+	//引入static静态资源
+	r.Static("/statics","web/static")
+
+	//可以使用中间件
+	//loginTpl := gintemplate.NewMiddleware(gintemplate.TemplateConfig{
+	//	Root:         "web/templates/login",
+	//	Extension:    ".html",
+	//	Master:       "",
+	//	Partials:     []string{},
+	//	DisableCache: true,
+	//})
+	//login := r.Group("/admin",loginTpl)
+
+	//不使用中间件
+	r.HTMLRender = gintemplate.New(gintemplate.TemplateConfig{
+		Root:         "web/templates/login",
+		Extension:    ".html",
+		Master:       "",
+		DisableCache: true,
+		Funcs:        template.FuncMap{},
+	})
+
+	//登录页面管理
+	login := r.Group("/admin")
+	{
+		login.GET("/login", api.Login)
+		login.POST("/logins", api.LoginAuth)
+	}
 
 	if err := r.Run(":8005"); err != nil {
 		fmt.Println("启动错误")

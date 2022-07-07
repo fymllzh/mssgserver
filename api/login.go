@@ -4,8 +4,11 @@ import (
 	"fmt"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"math/rand"
 	"mssgserver/utils"
 	"net/http"
+	gintemplate "github.com/foolin/gin-template"
+
 )
 
 type loginForm struct {
@@ -103,4 +106,11 @@ func LoginAuth(c *gin.Context) {
 	go updateLoginTime(userinfo.Id, utils.GetRequestIP(c))
 
 	c.Redirect(http.StatusFound, "/api/set/create")
+}
+
+func Login(c *gin.Context) {
+	gintemplate.HTML(c, http.StatusOK, "logins", gin.H{
+		"title":   "测试CT 任务管理平台",
+		"bgurl":   fmt.Sprintf("/statics/images/rand/pic_%d.jpg", rand.Intn(6)),
+	})
 }

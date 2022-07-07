@@ -5,6 +5,7 @@ go 1.16
 require (
 	github.com/Unknwon/goconfig v1.0.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/foolin/gin-template v0.0.0-20190415034731-41efedfb393b // indirect
 	github.com/forgoer/openssl v1.2.1
 	github.com/gin-contrib/sessions v0.0.5
 	github.com/gin-gonic/gin v1.8.1
