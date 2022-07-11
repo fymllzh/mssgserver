@@ -1,10 +1,10 @@
 package api
 
 import (
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"mssgserver/utils"
 	"net/http"
-	"github.com/gin-contrib/sessions"
 )
 
 func SetItems( c *gin.Context)  {
@@ -23,10 +23,18 @@ func SetItems( c *gin.Context)  {
 	cttask_token := s.Get("cttask_token")
 	utils.Logger.Info("login success")
 
+	//返回用户数据
+	var user Logins
+		data, err := user.Items()
+		if err != nil {
+			panic(err)
+		}
+
 	c.JSON(200,gin.H{
 		"do":"登陆成功",
 		"admin_name":admin_name,
 		"cttask_token":cttask_token,
+		"data":data,
 	})
 }
 func SetDelete(  c *gin.Context)  {

@@ -15,7 +15,7 @@ type loginForm struct {
 	Email    string `json:"email" form:"email" binding:"required,email,max=60"`
 	Password string `json:"password" form:"password" binding:"required,alphanum,min=6,max=12"`
 }
-type login struct {
+type Logins struct {
 	Id             int    `json:"id" db:"id"`
 	Name           string `json:"name" db:"name"`
 	Phone          string `json:"phone" db:"phone"`
@@ -60,7 +60,7 @@ func LoginAuth(c *gin.Context) {
 	}
 
 	//登录
-	var userinfo login
+	var userinfo Logins
 	sql := "select id,name,phone,status,email,passwd,login_ip,login_time,login_count,login_fail_count,salt from ct_user where email = ?"
 	err := utils.DB.Get(&userinfo, sql, form.Email)
 	if err != nil {
@@ -113,4 +113,10 @@ func Login(c *gin.Context) {
 		"title":   "测试CT 任务管理平台",
 		"bgurl":   fmt.Sprintf("/statics/images/rand/pic_%d.jpg", rand.Intn(6)),
 	})
+}
+
+func (l *Logins) Items() (logins []Logins, err error) {
+	sql := "select * from ct_user where 1 = 1 "
+	err = utils.DB.Select(&logins, sql)
+	return
 }
