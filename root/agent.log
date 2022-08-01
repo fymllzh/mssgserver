@@ -1,54 +1,7 @@
-
-{"level":"info","msg":"login start","time":"2022-07-07T20:42:34+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-07T20:43:04+08:00"}
-{"level":"info","msg":"请求的耗时是:16.57549ms","time":"2022-07-07T20:43:04+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-07T20:43:04+08:00"}
-{"level":"info","msg":"请求的耗时是:214.32µs","time":"2022-07-07T20:43:04+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-07T20:47:26+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-07T20:47:26+08:00"}
-{"level":"info","msg":"请求的耗时是:216.045µs","time":"2022-07-07T20:47:26+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-07T20:52:28+08:00"}
-{"level":"info","msg":"请求的耗时是:2.248867ms","time":"2022-07-07T20:52:28+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-07T20:52:31+08:00"}
-{"level":"info","msg":"请求的耗时是:205.896µs","time":"2022-07-07T20:52:31+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-07T20:55:26+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-07T20:55:27+08:00"}
-{"level":"info","msg":"请求的耗时是:447.106µs","time":"2022-07-07T20:55:27+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-07T21:02:39+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-07T21:02:39+08:00"}
-{"level":"info","msg":"请求的耗时是:283.588µs","time":"2022-07-07T21:02:39+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-07T21:16:43+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-07T21:16:43+08:00"}
-{"level":"info","msg":"请求的耗时是:272.874µs","time":"2022-07-07T21:16:43+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:12:10+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:12:10+08:00"}
-{"level":"info","msg":"Error 1146: Table 'passport.ct_set' doesn't exist","time":"2022-07-11T21:12:10+08:00"}
-{"level":"info","msg":"请求的耗时是:5.233808ms","time":"2022-07-11T21:12:10+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:14:56+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:14:56+08:00"}
-{"level":"info","msg":"scannable dest type slice with \u003e1 columns (11) in result","time":"2022-07-11T21:14:56+08:00"}
-{"level":"info","msg":"请求的耗时是:4.486291ms","time":"2022-07-11T21:14:56+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:18:01+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:18:01+08:00"}
-{"level":"info","msg":"scannable dest type slice with \u003e1 columns (11) in result","time":"2022-07-11T21:18:01+08:00"}
-{"level":"info","msg":"请求的耗时是:2.395667ms","time":"2022-07-11T21:18:01+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:21:28+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:21:28+08:00"}
-{"level":"info","msg":"missing destination name created_at in *[]api.login","time":"2022-07-11T21:21:28+08:00"}
-{"level":"info","msg":"请求的耗时是:7.502703ms","time":"2022-07-11T21:21:28+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:23:17+08:00"}
-{"level":"info","msg":"请求的耗时是:15.230443ms","time":"2022-07-11T21:23:17+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:23:17+08:00"}
-{"level":"info","msg":"missing destination name created_at in *[]api.login","time":"2022-07-11T21:23:17+08:00"}
-{"level":"info","msg":"请求的耗时是:4.471077ms","time":"2022-07-11T21:23:17+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:27:52+08:00"}
-{"level":"info","msg":"请求的耗时是:10.174558ms","time":"2022-07-11T21:27:52+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:27:52+08:00"}
-{"level":"info","msg":"请求的耗时是:2.72652ms","time":"2022-07-11T21:27:52+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:28:18+08:00"}
-{"level":"info","msg":"请求的耗时是:13.101628ms","time":"2022-07-11T21:28:18+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:28:18+08:00"}
-{"level":"info","msg":"请求的耗时是:3.414592ms","time":"2022-07-11T21:28:18+08:00"}
-{"level":"info","msg":"login start","time":"2022-07-11T21:31:11+08:00"}
-{"level":"info","msg":"login success","time":"2022-07-11T21:31:11+08:00"}
-{"level":"info","msg":"请求的耗时是:2.294347ms","time":"2022-07-11T21:31:11+08:00"}
+{"level":"info","msg":"ip_request:127.0.0.1","time":"2022-08-01T21:35:02+08:00"}
+{"level":"info","msg":"login start","time":"2022-08-01T21:35:02+08:00"}
+{"level":"info","msg":"1fbe09d6c0fb857ae0215ddfbe692458600c849881fb596aacc5717f29f6081a123456abcde","time":"2022-08-01T21:35:02+08:00"}
+{"level":"info","msg":"ip_request:127.0.0.1","time":"2022-08-01T21:35:09+08:00"}
+{"level":"info","msg":"ip_request:127.0.0.1","time":"2022-08-01T21:35:34+08:00"}
+{"level":"info","msg":"login start","time":"2022-08-01T21:35:34+08:00"}
+{"level":"info","msg":"1fbe09d6c0fb857ae0215ddfbe692458600c849881fb596aacc5717f29f6081a123456abcde","time":"2022-08-01T21:35:34+08:00"}

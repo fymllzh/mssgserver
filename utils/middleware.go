@@ -19,3 +19,24 @@ func StatCost() gin.HandlerFunc {
 		Logger.Info("请求的耗时是:" + cost.String())
 	}
 }
+
+//ip白名单
+//func IpWhiteList() gin.HandlerFunc {
+//	return func(c *gin.Context) {
+//		ip := GetRequestIP(c)
+//		Logger.Info("ip 是:" + ip)
+//		var ipList server.Ip
+//		row,_ := ipList.Allow(ip)
+//		if row.Id <= 0 {
+//			Logger.Info("ip_denny:", ip)
+//			c.JSON(http.StatusOK, gin.H{
+//				"errno":   403,
+//				"message": "Access Denny.",
+//				"ip":      ip,
+//			})
+//			c.Abort()
+//			return
+//		}
+//		c.Next()
+//	}
+//}
