@@ -87,14 +87,14 @@ func LoginAuth(c *gin.Context) {
 	}
 	//校验密码
 	if userinfo.Password != utils.Md5(form.Password+userinfo.Salt) {
-		fmt.Println("密码错误")
+		fmt.Println("密码错误",userinfo.Password,form.Password,userinfo.Salt,utils.Md5(form.Password+userinfo.Salt))
 		go updateLoginError(userinfo.Id, "")
 		//c.Redirect(http.StatusFound, fmt.Sprintf("/admin/login?account=%s&msg=账号或密码错误", form.Email))
 		return
 	}
 	//设置登录状态
 	session := sessions.Default(c)
-	session.Set("cttask_token", fmt.Sprintf("%d", userinfo.Id))
+	session.Set("login_id", fmt.Sprintf("%d", userinfo.Id))
 	session.Set("admin_name", userinfo.Email)
 	err = session.Save()
 	if err != nil {
@@ -115,8 +115,8 @@ func Login(c *gin.Context) {
 	})
 }
 
-func (l *Logins) Items() (logins []Logins, err error) {
-	sql := "select * from ct_user where 1 = 1 "
-	err = utils.DB.Select(&logins, sql)
+func (l *Logins) Items(id int) (logins []Logins, err error) {
+	sql := "select id,name,phone,status,email,passwd,login_ip,login_time,login_count,login_fail_count,salt from ct_user where id = ? "
+	err = utils.DB.Select(&logins, sql, id)
 	return
 }

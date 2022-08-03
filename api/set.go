@@ -20,12 +20,13 @@ func SetItems( c *gin.Context)  {
 
     s:= sessions.Default(c)
     admin_name := s.Get("admin_name")
-	cttask_token := s.Get("cttask_token")
+	login_id := s.Get("login_id")
 	utils.Logger.Info("login success")
 
 	//返回用户数据
 	var user Logins
-		data, err := user.Items()
+	op, _ := login_id.(int)
+		data, err := user.Items(op)
 		if err != nil {
 			panic(err)
 		}
@@ -33,7 +34,7 @@ func SetItems( c *gin.Context)  {
 	c.JSON(200,gin.H{
 		"do":"登陆成功",
 		"admin_name":admin_name,
-		"cttask_token":cttask_token,
+		"login_id":login_id,
 		"data":data,
 	})
 }
