@@ -66,14 +66,14 @@ func main()  {
 	///////////////////////////redis////////////////
 	//测试redis 需要结构体存取
 	//u := User{
-	//	ID : 9,
-	//	Name: "nihao",
+	//	ID : 99,
+	//	Name: "nihao45",
 	//
 	//}
 	//utils.SetJson("haha",u,3600)
 	//var aa User
 	//if utils.GetJson("haha",&aa) {
-	//	fmt.Printf("%+v",aa)
+	//	fmt.Printf("%#+v",aa)
 	//} else {
 	//	fmt.Println(888)
 	//}
@@ -81,7 +81,8 @@ func main()  {
 	//redis 读取字符串
 	//conn :=utils.Rdb.Get()
 	//defer conn.Close()
-	//res,_ :=conn.Do("GET","ceshikey") //可以换成别的命令
+	//conn.Do("SET","ceshikey22", "hahade") //可以直接取  也可以设置后再取
+	//res,_ :=conn.Do("GET","ceshikey22") //可以换成别的命令
 	//fmt.Println(string(res.([]byte)))
 
 
@@ -173,5 +174,8 @@ func main()  {
 
 		//fmt.Println(aa.Data)
 
+	// 测试不同文件夹下相同的方法名(只要不在同一个包名下就可以同名)
+	//str := websocket.Md5()
+	//fmt.Println(str)
 
 }

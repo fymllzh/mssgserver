@@ -1,14 +1,11 @@
-package utils
+package websocket
 
 import (
 	"bytes"
 	"compress/gzip"
-	"crypto/md5"
 	"encoding/binary"
 	"encoding/hex"
-	"fmt"
 	"github.com/forgoer/openssl"
-	"io"
 	"io/ioutil"
 )
 
@@ -28,11 +25,11 @@ func AesCBCDecrypt(src, key, iv []byte, padding string) ([]byte, error) {
 	return openssl.AesCBCDecrypt(data, key, iv, padding)
 
 }
-func Md5s(text string) string {
-	hashMd5 := md5.New()
-	io.WriteString(hashMd5, text)
-	return fmt.Sprintf("%x", hashMd5.Sum(nil))
-}
+//func Md5(text string) string {
+//	hashMd5 := md5.New()
+//	io.WriteString(hashMd5, text)
+//	return fmt.Sprintf("%x", hashMd5.Sum(nil))
+//}
 
 func Zip(data []byte) ([]byte, error){
 	var b bytes.Buffer
@@ -66,6 +63,10 @@ func UnZip(data []byte) ([]byte, error){
 	return unzipData, nil
 }
 
-func Password(pwd string, pwdCode string) string {
-	return Md5s(pwd + pwdCode)
+//func Password(pwd string, pwdCode string) string {
+//	return Md5(pwd + pwdCode)
+//}
+
+func Md5() string {
+	return "hello world"
 }
