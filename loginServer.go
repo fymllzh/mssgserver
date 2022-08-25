@@ -13,5 +13,5 @@ func main()  {
 	s := net.NewServer(host + ":" + port)
 
 	s.Start()
-	fmt.Println("登陆成功")
+	fmt.Println("登陆成功了啊")
 }

@@ -16,7 +16,7 @@ type User struct {
 	Name string
 }
 func main()  {
-	//异常捕获只能捕获单前文件的异常
+	//异常捕获只能捕获单前文件的异常1
 	defer func() {
 		if err := recover(); err != nil {
 			utils.Logger.Info("捕获异常错误")
